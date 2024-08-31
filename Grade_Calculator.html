@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Marks</title>
+</head>
+<body>
+    
+    <div class="container">
+     <div class="gc">
+        <h1 class="h1">Grade Calculator</h1>
+    </div>
+        <form>
+            <input class="input" id="i1" type="text" placeholder="Enter grade for subject 1" >
+            <input class="input" id="i2" type="text" placeholder="Enter grade for subject 2" >
+            <input class="input" id="i3" type="text" placeholder="Enter grade for subject 3" >
+            <input class="input" id="i4" type="text" placeholder="Enter grade for subject 4" >
+            <button class="btn" id="bt">Calculate Average</button>
+            <button class="btn" id="btc">Reset</button>
+            <div class="rs">
+                <div id="res" class="rest"></div>
+            </div>    
+            </div>
+        </form>
+       
+    <style>
+        body{
+            background: silver;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+    }
+        .rest{
+            margin-left: 20px;
+            margin-top: 1rem;
+            font-size: large;
+            font-weight: bold;
+        }
+        .gc{
+            color: darkblue;
+            border: none;
+            border-radius:.5vmin;
+            height: 2.4rem;
+            width: 30rem;
+            background-color: aqua;
+        }
+        .rs{
+            margin-left: 1.3rem;
+            height: 3rem;
+            width: 27rem;
+            background: silver;
+        }
+        .h1{
+            margin-left: 7rem;
+            margin-top: 5rem;
+
+        }
+        .container{
+            border-radius: 1.5vmin;
+            margin-top: 1rem;
+            margin-left: 25rem;
+           height: 20rem;
+           width: 30rem;
+          background: rgb(155, 0, 155);
+        }
+        #btc{
+            margin-left: 11rem;
+            background-color: lightblue;
+            border:none;
+        }
+
+        .btn{
+            border-radius: 2px;
+            margin-left: 20px;
+            margin-top: 10px;
+            height: 2.5rem;
+            width: 8rem;
+            background-color: greenyellow;
+            border: none;
+            font-weight: bold;
+        }
+        .input{
+            margin-top: 10px;
+            margin-left: 20px;
+            width: 27rem;
+            height: 1.3rem;
+        }
+        .rest{
+            margin-top: 2rem;
+            margin-left: 1.5rem;
+        }
+    </style>
+       <script>
+        function calculate_avg(){
+        let btn = document.querySelector('#bt');
+        btn.addEventListener('click',function(e){
+            e.preventDefault();
+            let input_one = document.querySelector('#i1').value;
+            input_one = Number.parseInt(input_one);
+            let num1 = input_one;
+
+            let input_two = document.querySelector('#i2').value;
+            input_two = Number.parseInt(input_two);
+            let num2 = input_two; 
+
+            let input_three = document.querySelector('#i3').value;
+            input_three = Number.parseInt(input_three);
+            let num3 = input_three;
+            
+            let input_four = document.querySelector('#i4').value;
+            input_four = Number.parseInt(input_four);
+            let num4 = input_four;
+        
+            let sum = num1+num2+num3+num4;
+            console.log(sum);
+            let avg = Math.round((sum/400)*100);
+            avg = Number.parseInt(avg);
+            let display = document.querySelector('#res');
+
+            if(avg >= 50 ){
+                res.innerHTML = `Congratulation You passed with an average grade of ${avg}.`
+            }
+            else{
+                res.innerHTML = `Unfortunately You failed with an lower grade of ${avg}.`
+            }
+            console.log(avg)
+            
+        })
+        btc.addEventListener('click',(()=>{
+            i1.value = '';
+            i2.value = '';
+            i3.value = '';
+            i4.value = '';
+
+        }))
+    }
+    calculate_avg()
+
+
+</script>
+</body>
+</html>
